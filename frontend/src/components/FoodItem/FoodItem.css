@@ -1,0 +1,152 @@
+.food-card {
+    width: 250px;
+    height: 360px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.food-card:hover {
+    transform: scale(1.05);
+}
+
+.food-card-img-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.food-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.food-card-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.food-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.food-card-header h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+}
+
+.food-card-price {
+    color: #e63946;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.food-card-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.buy-btn,
+.more-btn {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.buy-btn {
+    background-color: #6c63ff;
+}
+
+.more-btn {
+    background-color: #F63C0D;
+}
+
+.buy-btn:hover {
+    background-color: cadetblue;
+}
+
+.more-btn:hover {
+    background-color: gray;
+}
+
+.add-icon {
+    font-size: 24px;
+    color: #6c63ff;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background: white;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.food-card-counter {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 50px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.counter-icon {
+    font-size: 18px;
+    color: #ff6f61;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.food-card-counter p {
+    margin: 0 8px;
+    font-weight: bold;
+}
+
+.stars-container {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.star-filled {
+    color: #ffd700;
+    /* Golden yellow color for filled stars */
+    font-size: 16px;
+}
+
+.star-empty {
+    color: #ddd;
+    /* Light gray color for empty stars */
+    font-size: 16px;
+}

@@ -1,0 +1,104 @@
+.add {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.add-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.add-img-upload {
+    align-items: center;
+}
+
+.add-img-upload .label-text {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.image-label {
+    cursor: pointer;
+    border: 2px dashed #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    display: inline-block;
+    transition: border-color 0.3s;
+}
+
+.image-label:hover {
+    border-color: #007bff;
+}
+
+.upload-preview {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.label-text {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-field,
+.textarea-field,
+.select-field {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-field:focus,
+.textarea-field:focus,
+.select-field:focus {
+    border-color: #007bff;
+}
+
+.add-category-price {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.add-btn {
+    padding: 12px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .add-category-price {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .add-btn {
+        width: 100%;
+    }
+}

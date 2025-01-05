@@ -1,0 +1,208 @@
+.login-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.password-field-container {
+    position: relative;
+    width: 100%;
+}
+
+.forgot-password-container {
+    text-align: right;
+    margin-top: 4px;
+}
+
+.forgot-password-link {
+    color: tomato;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.forgot-password-link:hover {
+    text-decoration: underline;
+}
+
+/* Container for the login popup form */
+.login-popup-container {
+    background-color: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-50px);
+    opacity: 0;
+    animation: fadeInUp 0.4s ease-out forwards;
+}
+
+/* Animation for showing popup */
+@keyframes fadeInUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Close button */
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.close-btn:hover {
+    color: tomato;
+}
+
+/* Title styling */
+.login-popup-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Input fields */
+.login-popup-inputs input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.login-popup-inputs input:focus {
+    border: 1px solid tomato;
+}
+
+/* Button styling */
+.login_btn {
+    width: 100%;
+    padding: 14px;
+    background-color: tomato;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.click_here,
+.login_here {
+    color: tomato;
+    cursor: pointer;
+}
+
+
+/* Terms and conditions text */
+.login-popup-condition {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.login-popup-condition input {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.login-popup-condition p {
+    margin: 0;
+}
+
+/* Text for switching between login/signup */
+.login-popup-footer p {
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+
+.login-popup-footer span {
+    color: tomato;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.login-popup-footer span:hover {
+    color: darkorange;
+}
+
+.password-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-toggle-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s ease;
+    /* Prevent the icon from being clickable when disabled */
+    pointer-events: auto;
+    /* Ensure the icon is above the input */
+    z-index: 1;
+}
+
+.password-toggle-icon:hover {
+    color: tomato;
+}
+
+/* Adjust the padding of the password input to prevent text from going under the icon */
+.password-input-wrapper input {
+    padding-right: 40px !important;
+}
+
+/* Add this in your HTML head section for Font Awesome icons */
+
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .login-popup-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .login-popup-title {
+        font-size: 20px;
+    }
+
+    .login-popup-inputs input {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

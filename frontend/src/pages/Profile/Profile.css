@@ -1,0 +1,453 @@
+.profile-container {
+    max-width: 1200px;
+    margin: 90px auto 2rem;
+    padding: 0 1rem;
+}
+
+.profile-layout {
+    display: flex;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    min-height: 500px;
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Left Section */
+.profile-left-section {
+    flex: 0 0 300px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+}
+
+.profile-image-container {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #f0f0f0;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.camera-overlay {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: #6c5ce7;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid white;
+    transition: all 0.3s ease;
+}
+
+.camera-overlay:hover {
+    transform: scale(1.1);
+}
+
+.profile-info {
+    width: 100%;
+}
+
+.profile-info h3 {
+    margin: 0 0 0.5rem;
+    color: #333;
+    font-size: 1.25rem;
+}
+
+.profile-info p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+/* Button Styles */
+.edit-profile-btn,
+.logout-btn {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.edit-profile-btn {
+    background: #6c5ce7;
+    color: white;
+}
+
+.edit-profile-btn:hover {
+    background: #5549d6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.2);
+}
+
+.logout-btn {
+    background: #f0f0f0;
+    color: #666;
+}
+
+.logout-btn:hover {
+    background: #e4e4e4;
+}
+
+/* Form Styles */
+.edit-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.edit-form input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.edit-form input:focus {
+    outline: none;
+    border-color: #6c5ce7;
+    box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.1);
+}
+
+.edit-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.save-btn,
+.cancel-btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.save-btn {
+    background: #6c5ce7;
+    color: white;
+}
+
+.save-btn:hover {
+    background: #5549d6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.2);
+}
+
+.cancel-btn {
+    background: #f0f0f0;
+    color: #666;
+}
+
+.cancel-btn:hover {
+    background: #e4e4e4;
+}
+
+/* Vertical Separator */
+.vertical-separator {
+    width: 1px;
+    background: #eee;
+}
+
+/* Right Section - Orders */
+.profile-right-section {
+    flex: 1;
+    padding: 2rem;
+    background: #fff;
+    overflow: hidden;
+}
+
+.profile-right-section h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.orders-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.order-group {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+}
+
+.order-group:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-item {
+    display: flex;
+    padding: 1rem;
+    background: #fff;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #eee;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-product {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.product-image-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid #eee;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    gap: 1rem;
+}
+
+.product-name {
+    font-weight: 500;
+    color: #333;
+    flex: 2;
+}
+
+.product-quantity {
+    color: #666;
+    flex: 1;
+    text-align: center;
+}
+
+.product-price {
+    color: #000;
+    font-weight: 500;
+    flex: 1;
+    text-align: right;
+}
+
+.status {
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    min-width: 120px;
+    text-align: center;
+}
+
+.status-food-processing {
+    background: #FFF3E0;
+    color: #E65100;
+}
+
+.status-delivered {
+    background: #E8F5E9;
+    color: #2E7D32;
+}
+
+.status-out-for-delivery {
+    background: #E3F2FD;
+    color: #1565C0;
+}
+
+.order-total-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-top: 1px solid #eee;
+}
+
+.order-date {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.total-price {
+    font-weight: 500;
+    color: #333;
+}
+
+.total-price span {
+    color: #6c5ce7;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+/* Utility Classes */
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
+
+.error {
+    text-align: center;
+    padding: 2rem;
+    color: #e74c3c;
+}
+
+.no-orders {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+    font-style: italic;
+}
+
+/* Input file upload styling */
+#profile-image-input {
+    display: none;
+}
+
+.profile-image label {
+    cursor: pointer;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scrollbar Styling */
+.orders-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.orders-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.orders-list::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 3px;
+}
+
+.orders-list::-webkit-scrollbar-thumb:hover {
+    background: #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .profile-layout {
+        flex-direction: column;
+    }
+
+    .profile-left-section {
+        flex: none;
+        width: 100%;
+        padding-bottom: 1.5rem;
+    }
+
+    .vertical-separator {
+        width: 100%;
+        height: 1px;
+    }
+
+    .profile-right-section {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .profile-container {
+        margin: 70px auto 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .order-product {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .product-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .product-name,
+    .product-quantity,
+    .product-price {
+        width: 100%;
+        text-align: left;
+    }
+
+    .status {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .order-total-section {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .total-price {
+        width: 100%;
+        padding-top: 0.5rem;
+        border-top: 1px solid #eee;
+    }
+}

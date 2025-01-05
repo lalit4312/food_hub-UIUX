@@ -1,0 +1,172 @@
+.list-container {
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    width: 100%;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 20px;
+}
+
+.list-header h2 {
+    font-size: 1.5rem;
+    color: #2d3748;
+    margin: 0;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px 16px;
+    width: 300px;
+}
+
+.search-icon {
+    color: #718096;
+    margin-right: 8px;
+}
+
+.search-bar input {
+    border: none;
+    background: none;
+    outline: none;
+    width: 100%;
+    font-size: 0.9rem;
+    color: #4a5568;
+}
+
+.list-table {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.list-table-header {
+    display: grid;
+    grid-template-columns: 0.8fr 2fr 1fr 1fr 0.5fr;
+    background: #f8fafc;
+    padding: 16px;
+    gap: 16px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.header-cell {
+    color: #4a5568;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.list-table-row {
+    display: grid;
+    grid-template-columns: 0.8fr 2fr 1fr 1fr 0.5fr;
+    padding: 16px;
+    gap: 16px;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+    transition: background-color 0.2s ease;
+}
+
+.list-table-row:hover {
+    background-color: #f8fafc;
+}
+
+.food-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.food-name {
+    font-weight: 500;
+    color: #2d3748;
+}
+
+.category-badge {
+    background: #ebf4ff;
+    color: #3182ce;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.price {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #e53e3e;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+    background: #fff5f5;
+    color: #c53030;
+}
+
+.no-items {
+    text-align: center;
+    padding: 48px;
+    color: #718096;
+}
+
+@media (max-width: 768px) {
+    .list-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-bar {
+        width: auto;
+    }
+
+    .list-table-header {
+        display: none;
+    }
+
+    .list-table-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .table-cell {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .table-cell::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #4a5568;
+    }
+
+    .food-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .delete-btn {
+        width: 100%;
+        background: #fff5f5;
+        padding: 12px;
+    }
+}

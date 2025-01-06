@@ -1,5 +1,5 @@
 import express from 'express';
-import { addFood, listFood, removeFood,searchProducts } from '../controllers/foodController.js';
+import { addFood, listFood, removeFood, searchProducts } from '../controllers/foodController.js';
 import multer from 'multer';
 import fs from 'fs';
 import path from 'path';

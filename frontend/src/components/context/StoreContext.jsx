@@ -69,6 +69,7 @@ const StoreContextProvider = (props) => {
     // Get total amount of the cart items which have been added
     const getTotalCartAmount = () => {
         let total = 0;
+        if (!food_list || !cartItems) return total;
         for (const item in cartItems) {
             if (cartItems[item] > 0) {
                 let itemInfo = food_list.find((product) => product._id === item);

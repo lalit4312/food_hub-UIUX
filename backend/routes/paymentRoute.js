@@ -1,4 +1,4 @@
-import { checkout, verifyEsewa, getUserOrders } from '../controllers/paymentController.js';
+import { checkout, verifyEsewa, getUserOrders, removeOrder } from '../controllers/paymentController.js';
 import authMiddleware from './../middleware/auth.js';
 import express from 'express';
 
@@ -12,4 +12,7 @@ paymentRouter.get('/failed', (req, res) => {
 
 
 paymentRouter.get('/user-orders', authMiddleware, getUserOrders);
+
+paymentRouter.delete('/remove-order/:orderId', authMiddleware, removeOrder);
+
 export default paymentRouter

@@ -11,6 +11,12 @@
     font-weight: 600;
 }
 
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 4px;
+}
+
 .place-order {
     display: flex;
     gap: 40px;

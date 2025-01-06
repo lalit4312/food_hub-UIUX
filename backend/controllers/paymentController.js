@@ -113,32 +113,107 @@ const verifyEsewa = async (req, res) => {
         payment.status = 'COMPLETE';
         await payment.save();
 
-        res.redirect("http://localhost:5173/cart");
+        res.redirect("http://localhost:5175/");
     } catch (err) {
         console.log(err.message);
         return res.status(400).json({ error: err.message || "No Orders found" });
     }
 };
 
+const removeOrder = async (req, res) => {
+    try {
+        const orderId = req.params.orderId;
+        const userId = req.user.id;
+
+        // Find and update the order to add userId to hiddenFor array
+        const result = await Payment.findByIdAndUpdate(
+            orderId,
+            { $addToSet: { hiddenFor: userId } },
+            { new: true }
+        );
+
+        if (!result) {
+            return res.status(404).json({
+                success: false,
+                message: 'Order not found'
+            });
+        }
+
+        res.json({
+            success: true,
+            message: 'Order removed from history'
+        });
+    } catch (error) {
+        console.error('Error removing order:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Failed to remove order'
+        });
+    }
+};
+
+
+// const getUserOrders = async (req, res) => {
+//     try {
+//         // Find all payments/orders for the current user and populate full product details
+//         const orders = await Payment.find({ userId: req.user.id })
+//             .populate({
+//                 path: 'cartItems.productId',
+//                 model: 'food', // Make sure this matches your food model name
+//                 select: 'name price image' // Include the image field
+//             })
+//             .sort({ createdAt: -1 });
+
+//         // Format the orders for frontend, now including image
+//         const formattedOrders = orders.map(order => ({
+//             _id: order._id,
+//             items: order.cartItems.map(item => ({
+//                 name: item.productId?.name || 'Product Not Found',
+//                 quantity: item.quantity,
+//                 price: item.price,
+//                 image: item.productId?.image || null // Include the image URL
+//             })),
+//             totalAmount: order.totalAmount,
+//             status: order.status,
+//             createdAt: order.createdAt,
+//         }));
+
+//         res.json({
+//             success: true,
+//             data: formattedOrders
+//         });
+//     } catch (error) {
+//         console.error('Error fetching user orders:', error);
+//         res.status(500).json({
+//             success: false,
+//             message: 'Error fetching orders',
+//             error: error.message
+//         });
+//     }
+// };
+
 const getUserOrders = async (req, res) => {
     try {
-        // Find all payments/orders for the current user and populate full product details
-        const orders = await Payment.find({ userId: req.user.id })
+        // Find orders that aren't hidden for this user
+        const orders = await Payment.find({
+            userId: req.user.id,
+            hiddenFor: { $ne: req.user.id } // Exclude orders where user ID is in hiddenFor array
+        })
             .populate({
                 path: 'cartItems.productId',
-                model: 'food', // Make sure this matches your food model name
-                select: 'name price image' // Include the image field
+                model: 'food',
+                select: 'name price image'
             })
             .sort({ createdAt: -1 });
 
-        // Format the orders for frontend, now including image
+        // Format the orders for frontend
         const formattedOrders = orders.map(order => ({
             _id: order._id,
             items: order.cartItems.map(item => ({
                 name: item.productId?.name || 'Product Not Found',
                 quantity: item.quantity,
                 price: item.price,
-                image: item.productId?.image || null // Include the image URL
+                image: item.productId?.image || null
             })),
             totalAmount: order.totalAmount,
             status: order.status,
@@ -159,4 +234,4 @@ const getUserOrders = async (req, res) => {
     }
 };
 
-export { checkout, verifyEsewa, getUserOrders };
+export { checkout, verifyEsewa, getUserOrders, removeOrder };

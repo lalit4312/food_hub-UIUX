@@ -14,17 +14,7 @@
     animation: slideIn 0.5s ease-out;
 }
 
-/* Left Section */
-.profile-left-section {
-    flex: 0 0 300px;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background: #fff;
-}
-
+/* Profile Image Styles */
 .profile-image-container {
     width: 150px;
     height: 150px;
@@ -41,35 +31,66 @@
     border: 3px solid #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: relative;
+    cursor: pointer;
 }
 
 .profile-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: filter 0.3s ease;
+}
+
+.profile-image:hover img {
+    filter: brightness(0.8);
 }
 
 .camera-overlay {
     position: absolute;
-    bottom: 5px;
-    right: 5px;
-    background: #6c5ce7;
-    color: white;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    border: 2px solid white;
-    transition: all 0.3s ease;
 }
 
-.camera-overlay:hover {
-    transform: scale(1.1);
+.profile-image:hover .camera-overlay {
+    opacity: 1;
 }
 
+.camera-icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    gap: 8px;
+}
+
+.camera-text {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#profile-image-input {
+    display: none;
+}
+
+/* Left Section */
+.profile-left-section {
+    flex: 0 0 300px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+}
+
+/* Profile Info */
 .profile-info {
     width: 100%;
 }
@@ -176,13 +197,30 @@
     background: #e4e4e4;
 }
 
-/* Vertical Separator */
+/* Orders Section Styles */
+.remove-order-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    background-color: #fee2e2;
+    color: #dc2626;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.remove-order-btn:hover {
+    background-color: #fecaca;
+}
+
 .vertical-separator {
     width: 1px;
     background: #eee;
 }
 
-/* Right Section - Orders */
 .profile-right-section {
     flex: 1;
     padding: 2rem;
@@ -223,10 +261,6 @@
     background: #fff;
     transition: all 0.2s ease;
     border-bottom: 1px solid #eee;
-}
-
-.order-item:last-child {
-    border-bottom: none;
 }
 
 .order-product {
@@ -278,6 +312,7 @@
     text-align: right;
 }
 
+/* Status Styles */
 .status {
     padding: 0.4rem 1rem;
     border-radius: 4px;
@@ -347,28 +382,6 @@
     font-style: italic;
 }
 
-/* Input file upload styling */
-#profile-image-input {
-    display: none;
-}
-
-.profile-image label {
-    cursor: pointer;
-}
-
-/* Animations */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* Scrollbar Styling */
 .orders-list::-webkit-scrollbar {
     width: 6px;
@@ -386,6 +399,19 @@
 
 .orders-list::-webkit-scrollbar-thumb:hover {
     background: #ccc;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive Design */
